@@ -9,7 +9,6 @@ def write_file(filename: str, lines: list) -> None:
     with open(filename, "w") as txt_file:
         txt_file.write(content)
 
-print("1", __name__)
 
 if __name__ == "__main__":
     filename = "../test.txt"
