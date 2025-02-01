@@ -11,6 +11,6 @@ def write_file(filename: str, lines: list) -> None:
 
 
 if __name__ == "__main__":
-    filename = "../test.txt"
+    filename = "../1 course/test.txt"
     data = read_file(filename)
     print(data)

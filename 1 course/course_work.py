@@ -80,7 +80,7 @@ def main(logs: list[dict]) -> None:
 
 
 if __name__ == '__main__':
-    filename = "Homeworks/test_logs.txt"
+    filename = "../Homeworks/test_logs.txt"
     data = read_file(filename)
     logs = transform_data(data)
     main(logs)

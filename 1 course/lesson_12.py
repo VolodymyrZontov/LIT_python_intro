@@ -1,7 +1,7 @@
 from utils.filesystem import read_file, write_file
 
 filename = "test.txt"
-filename_result = "result.txt"
+filename_result = "../result.txt"
 
 data = read_file(filename)
 
