@@ -1,0 +1,45 @@
+Реалізуйте базовий клас AxisAlignedRectangle (Прямокутник із сторонами, паралельними осям координат),
+а також клас-нащадок GeneralRectangle (прямокутник, заданий трьома вершинами).
+
+Вимоги до AxisAlignedRectangle (базовий клас):
+	1.	Конструктор приймає дві протилежні вершини (Point).
+	2.	Визначає інші дві вершини автоматично.
+	3.	Реалізує методи:
+	•	get_area() — повертає площу.
+	•	get_sides() — повертає довжини сторін (спочатку ту, що вздовж осі х, потім ту, що вздовж осі у).
+	•   get_diagonal() - повертає довжину діагоналі.
+	•	__repr__() — гарний вивід.
+Додати гетери для доступу до площі, сторін та діагоналі.
+
+Вимоги до GeneralRectangle (клас-нащадок AxisAlignedRectangle):
+	1.	Конструктор приймає три вершини (Point).
+	2.	Четверта вершина обчислюється автоматично.
+	3.	Використовує всі методи батьківського класу.
+	4.	Додає метод:
+	•	is_valid_rectangle() — повертає True, якщо можна побудувати прямокутник,
+	False, якщо всі точки лежать на одній прямій (тобто неможливо побудувати прямокутник).
+
+Приклад використання:
+A = Point(1, 1)
+B = Point(5, 4)
+
+# Прямокутник зі сторонами, паралельними осям координат
+aligned_rect = AxisAlignedRectangle(A, B)
+print(aligned_rect)
+print("Площа:", aligned_rect.get_area())
+print("Сторони:", aligned_rect.get_sides())
+print("Діагональ:", aligned_rect.get_diagonal())
+
+# Довільний прямокутник за трьома вершинами
+C = Point(5, 1)
+general_rect = GeneralRectangle(A, B, C)
+print(general_rect)
+
+print("Чи можна побудувати прямокутник?:", general_rect.is_valid_rectangle())
+print("Площа:", general_rect.get_area())
+print("Сторони:", general_rect.get_sides())
+print("Діагональ:", general_rect.get_diagonal())
+
+Додаткові фомули:
+	•	x_d = x_a + x_c - x_b
+	•	y_d = y_a + y_c - y_b
