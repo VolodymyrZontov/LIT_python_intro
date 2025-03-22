@@ -42,11 +42,11 @@ class Triangle:
 
 
 ###############################
+if __name__ == '__main__':
+    A = Point(0, 4)
+    B = Point(3, 0)
+    C = Point(0, 0)
 
-A = Point(0, 4)
-B = Point(3, 0)
-C = Point(0, 0)
+    ABC = Triangle(A, B, C)
 
-ABC = Triangle(A, B, C)
-
-print(ABC.area)
+    print(ABC.area)
