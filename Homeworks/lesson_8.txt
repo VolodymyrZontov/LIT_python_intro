@@ -1,0 +1,64 @@
+books = [
+    {"title": "1984", "author": "George Orwell", "pages": 328},
+    {"title": "To Kill a Mockingbird", "author": "Harper Lee", "pages": 281},
+    {"title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "pages": 180},
+    {"title": "Moby Dick", "author": "Herman Melville", "pages": 635},
+    {"title": "Brave New World", "author": "Aldous Huxley", "pages": 268},
+]
+Завдання 1.
+	1.	Відсортуй книги за кількістю сторінок.
+	2.	Виведи список назв книг (title) за допомогою map().
+	3.	Відсортуй книги за довжиною прізвища автора, потім за назвою книги в алфавітному порядку.
+
+students = [
+    {
+        "name": "Olena",
+        "age": 19,
+        "grades": {
+            "math": 95,
+            "physics": 88,
+            "literature": 78
+        }
+    },
+    {
+        "name": "Andrii",
+        "age": 20,
+        "grades": {
+            "math": 82,
+            "physics": 91,
+            "literature": 85
+        }
+    },
+    {
+        "name": "Sofiia",
+        "age": 18,
+        "grades": {
+            "math": 99,
+            "physics": 84,
+            "literature": 90
+        }
+    },
+    {
+        "name": "Ivan",
+        "age": 21,
+        "grades": {
+            "math": 70,
+            "physics": 73,
+            "literature": 68
+        }
+    },
+    {
+        "name": "Kateryna",
+        "age": 20,
+        "grades": {
+            "math": 88,
+            "physics": 92,
+            "literature": 81
+        }
+    }
+]
+
+Завдання 2
+	1.	Відсортуй студентів за оцінкою з фізики.
+	2.	Отримай список середніх оцінок кожного студента.
+	3.	Відсортуй студентів за середнім балом.
