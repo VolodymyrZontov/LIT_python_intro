@@ -1,6 +1,9 @@
 import ast
 import re
 
+from settings import REGEX_FILENAME, REGEX_PAGE_INFO, REGEX_PAGE_DATA
+from utils.filesystem import get_lines_from_txt_file
+
 
 # my_str = "My e_mail: zontov_v2025@gmail.com.ua, my new e-mail: 45_vz@dlit.dp.ua"
 #
@@ -15,14 +18,16 @@ class PageInfo:
         self.page_height = page_height
         self.page_width = page_width
         self.data = ast.literal_eval(data)
+        self.text_data = self._get_text_data()
 
     def __repr__(self) -> str:
         return f"page{self.page_number}:({self.page_width}, {self.page_height}), data: {len(self.data)}"
 
-    def print_data(self) -> None:
-        [print(self.build_text_line(data_line)) for data_line in self.data]
+    def _get_text_data(self) -> list[str]:
+        return [self._build_text_line(data_line) for data_line in self.data]
 
-    def build_text_line(self, data_line) -> str:
+    @staticmethod
+    def _build_text_line(data_line) -> str:
         return " ".join([line[-1] for line in data_line])
 
 
@@ -36,12 +41,16 @@ class TifInfo:
 
 
 class LogsInfo:
-    def __init__(self, filename: str, ) -> None:
-        self.data = self.get_data_from_txt(filename)
+    def __init__(self, filename: str,
+                 regex_filename: str = REGEX_FILENAME,
+                 regex_page_info: str = REGEX_PAGE_INFO,
+                 regex_page_data: str = REGEX_PAGE_DATA,
+                 ) -> None:
+        self.data = get_lines_from_txt_file(filename)
         self.logs_info = []
-        self.regex_filename = r"cedTifTest/\d+\.\d+\.\d+\.\d+M\.TIF"
-        self.regex_page_info = r"page\s+(\d+)\s+pageHeight\s+(\d+)\s+pageWidth\s+(\d+)"
-        self.regex_page_data = r"page\s+(\d+)\s+(\[+.*\]+)$"
+        self.regex_filename = regex_filename
+        self.regex_page_info = regex_page_info
+        self.regex_page_data = regex_page_data
 
     def process_data(self) -> None:
         pages = []
@@ -62,11 +71,6 @@ class LogsInfo:
                 pages = []
                 pages_data_dict = {}
 
-    def get_data_from_txt(self, filename: str) -> list[str]:
-        with open(filename, "r") as file:
-            data = file.read()
-        return data.split("\n")
-
 
 if __name__ == "__main__":
     filename = "lesson_9.txt"
@@ -75,4 +79,7 @@ if __name__ == "__main__":
     for tif_data in logs_info.logs_info[:10]:
         print(f"================={tif_data.filename}===================")
         for page in tif_data.pages:
-            page.print_data()
+            # fake_data = (("1", "2", "3"), ("4", "5", "6"), ("7", "8", "9"))
+            # print(page._build_text_line(fake_data))
+            for line in page.text_data:
+                print(line)

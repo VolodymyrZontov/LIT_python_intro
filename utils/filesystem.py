@@ -10,6 +10,11 @@ def write_file(filename: str, lines: list) -> None:
         txt_file.write(content)
 
 
+def get_lines_from_txt_file(filename: str) -> list[str]:
+    with open(filename, "r") as file:
+        data = file.read()
+    return data.split("\n")
+
 if __name__ == "__main__":
     filename = "../1 course/test.txt"
     data = read_file(filename)
